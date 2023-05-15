@@ -10,7 +10,7 @@ public class MovieTrailerResponse {
       this.trailers = trailers;
    }
 
-   public Trailers getTrailers() {
+   public Trailers getTrailersList() {
       return trailers;
    }
 
