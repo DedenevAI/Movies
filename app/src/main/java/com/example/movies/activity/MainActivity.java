@@ -1,22 +1,21 @@
-package com.example.movies;
+package com.example.movies.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import java.util.List;
+import com.example.movies.viewModel.MainActivityViewModel;
+import com.example.movies.R;
+import com.example.movies.pojo.Movie;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private MainActivityViewModel viewModel;
@@ -58,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReachEnd() {
                 viewModel.loadMovies();
+            }
+        });
+        moviesAdapter.setOnClickMovie(new MoviesAdapter.OnClickMovie() {
+            @Override
+            public void onClick(Movie movie) {
+                Intent intent = MovieDetailActivity.newIntent(MainActivity.this, movie);
+                startActivity(intent);
             }
         });
     }

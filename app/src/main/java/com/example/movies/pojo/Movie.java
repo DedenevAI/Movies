@@ -1,8 +1,10 @@
-package com.example.movies;
+package com.example.movies.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     @SerializedName("id")
     private int id;
     @SerializedName("name")

@@ -1,4 +1,4 @@
-package com.example.movies;
+package com.example.movies.pojo;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
